@@ -197,8 +197,10 @@ class Arena{
                 switch ($button)
 				{
 					case 0: $this->manager->addNewPlayerToQueue($player);
+
 					break;
 					case 1: Server::getInstance()->dispatchCommand($player, "top");
+					
 					break;
 					
 					default: $player->getInventory()->clearAll();

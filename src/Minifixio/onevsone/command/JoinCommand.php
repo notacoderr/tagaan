@@ -55,11 +55,13 @@ class JoinCommand extends Command implements PluginIdentifiableCommand{
                 $button = $data[0];
                 switch ($button)
 				{
-					case 0: return $this->arenaManager->addNewPlayerToQueue($player);
+					case 0: $this->arenaManager->addNewPlayerToQueue($player);
 					break;
-					case 1: return;
+					case 1:
+						
 					break;
 				}
+				return true;
             }
         });
 		$form->setTitle("§l§0[§c1 vs 1§0]§7 - §fP§bC§fP");

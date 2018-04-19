@@ -119,16 +119,16 @@ class ArenaManager{
 	public function addNewPlayerToQueue(Player $newPlayer){
 		
 		// Check that player is not already in the queue
-		if(in_array($newPlayer, $this->queue)){
+		if(in_array ($newPlayer, $this->queue) ){ //nesting too deep?? will check $this->queue
 			PluginUtils::sendDefaultMessage($newPlayer, OneVsOne::getMessage("queue_alreadyinqueue"));
-			return;
+			return true;
 		}
 		
 		// Check that player is not currently in an arena
 		$currentArena = $this->getPlayerArena($newPlayer);
 		if($currentArena != null){
 			PluginUtils::sendDefaultMessage($newPlayer, OneVsOne::getMessage("arena_alreadyinarena"));
-			return;
+			return true;
 		}
 		
 		// add player to queue
@@ -142,6 +142,8 @@ class ArenaManager{
 		
 		$this->launchNewRounds();
 		$this->refreshSigns();
+
+		return true;
 	}
 
 	/**

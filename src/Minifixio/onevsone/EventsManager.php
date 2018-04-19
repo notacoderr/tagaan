@@ -40,10 +40,11 @@ class EventsManager implements Listener{
 		$deadPlayer = $event->getEntity();
 		$arena = $this->arenaManager->getPlayerArena($deadPlayer);
 		if($arena != NULL){
-                        $event->setDrops([]);
-                        $event->setKeepInventory(false);
+            $event->setDrops([]);
+            $event->setKeepInventory(false);
 			$arena->onPlayerDeath($deadPlayer);
 		}
+		return true;
 	}
 	
 	public function tileupdate(SignChangeEvent $event){
